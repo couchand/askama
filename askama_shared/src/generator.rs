@@ -1017,12 +1017,11 @@ impl<'a, S: std::hash::BuildHasher> Generator<'a, S> {
             self.visit_str_lit(buf, v);
             buf.write(", ");
         } else {
-            panic!("invalid expression type for format filter");
+            panic!("invalid expression type for fmt filter");
         }
         self._visit_args(buf, &args[0..1]);
         if args.len() > 2 {
-            buf.write(", ");
-            self._visit_args(buf, &args[2..]);
+            panic!("only two arguments allowed to fmt filter");
         }
         buf.write(")");
     }
