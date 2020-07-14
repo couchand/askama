@@ -39,7 +39,7 @@ fn filter_format() {
 }
 
 #[derive(Template)]
-#[template(source = "{{ var|fmt(\"{:?}\") }}", escape = "none")]
+#[template(source = "{{ var|fmt(\"{:?}\") }}", ext="html", escape = "none")]
 struct FmtTemplate<'a> {
     var: &'a str,
 }
