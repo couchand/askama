@@ -141,13 +141,16 @@ pub fn urlencode(s: &dyn fmt::Display) -> Result<String> {
 /// Formats arguments according to the specified format
 ///
 /// The *second* argument to this filter must be a string literal (as in normal
-/// Rust). All arguments are passed through to the `format!()`
+/// Rust). The two arguments are passed through to the `format!()`
 /// [macro](https://doc.rust-lang.org/stable/std/macro.format.html) by
-/// the Askama code generator, but the order of the first two are swapped.
+/// the Askama code generator, but the order is swapped to support filter
+/// composition.
 ///
 /// ```ignore
 /// {{ value | fmt("{:?}") }}
 /// ```
+///
+/// Compare with [format](./fn.format.html).
 pub fn fmt() {}
 
 /// Formats arguments according to the specified format
@@ -160,6 +163,8 @@ pub fn fmt() {}
 /// ```ignore
 /// {{ "{:?}" | format(value) }}
 /// ```
+///
+/// Compare with [fmt](./fn.fmt.html).
 pub fn format() {}
 
 /// Replaces line breaks in plain text with appropriate HTML
